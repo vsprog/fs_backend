@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const db = require('../db/db');
 const { validate } = require('jsonschema');
-const rp = require('request-promise');
+const request = require('request-promise');
 
 
 // GET movies
@@ -23,7 +23,7 @@ router.get('/bookmarks/:imdbID', (req, res) => {
 
 // GET /:imdbID
 router.get('/:imdbID', (req, res) => {
-  rp({
+  request({
       uri: 'http://www.omdbapi.com/',
       qs: {
           i: req.params.imdbID,
@@ -37,13 +37,14 @@ router.get('/:imdbID', (req, res) => {
       //console.log(movie);
   }) 
   .catch( err => {
-      console.log(err);    
+      console.log(err);
+      next(err);
   }); 
 });
 
 // POST /movies
 router.post('/', (req, res, next) => {     
-  rp({
+  request({
       uri: 'http://www.omdbapi.com/',
       qs: {
           i: req.body.imdbID,
@@ -64,6 +65,7 @@ router.post('/', (req, res, next) => {
   }) 
   .catch( err => {
       console.log(err);    
+      next(err);
   });  
 });
 
