@@ -1,0 +1,85 @@
+{
+  "movies": [
+    {
+      "Title": "Guardians of the Galaxy",
+      "Year": "2014",
+      "Rated": "PG-13",
+      "Released": "01 Aug 2014",
+      "Runtime": "121 min",
+      "Genre": "Action, Adventure, Sci-Fi",
+      "Director": "James Gunn",
+      "Writer": "James Gunn, Nicole Perlman, Dan Abnett (based on the Marvel comics by), Andy Lanning (based on the Marvel comics by), Bill Mantlo (character created by: Rocket Raccoon), Keith Giffen (character created by: Rocket Raccoon), Jim Starlin (characters created by: Drax the Destroyer,  Gamora & Thanos), Steve Englehart (character created by: Star-Lord), Steve Gan (character created by: Star-Lord), Steve Gerber (character created by: Howard the Duck), Val Mayerik (character created by: Howard the Duck)",
+      "Actors": "Chris Pratt, Zoe Saldana, Dave Bautista, Vin Diesel",
+      "Plot": "After stealing a mysterious orb in the far reaches of outer space, Peter Quill from Earth, is now the main target of a manhunt led by the villain known as Ronan the Accuser. To help fight Ronan and his team and save the galaxy from his power, Quill creates a team of space heroes known as the \"Guardians of the Galaxy\" to save the world.",
+      "Language": "English",
+      "Country": "USA",
+      "Awards": "Nominated for 2 Oscars. Another 52 wins & 99 nominations.",
+      "Poster": "https://ia.media-imdb.com/images/M/MV5BMTAwMjU5OTgxNjZeQTJeQWpwZ15BbWU4MDUxNDYxODEx._V1_SX300.jpg",
+      "Ratings": [
+        {
+          "Source": "Internet Movie Database",
+          "Value": "8.1/10"
+        },
+        {
+          "Source": "Rotten Tomatoes",
+          "Value": "91%"
+        },
+        {
+          "Source": "Metacritic",
+          "Value": "76/100"
+        }
+      ],
+      "Metascore": "76",
+      "imdbRating": "8.1",
+      "imdbVotes": "835,288",
+      "imdbID": "tt2015381",
+      "Type": "movie",
+      "DVD": "09 Dec 2014",
+      "BoxOffice": "$270,592,504",
+      "Production": "Walt Disney Pictures",
+      "Website": "http://marvel.com/guardians",
+      "Response": "True"
+    },
+    {
+      "Title": "Batman",
+      "Year": "1989",
+      "Rated": "PG-13",
+      "Released": "23 Jun 1989",
+      "Runtime": "126 min",
+      "Genre": "Action, Adventure",
+      "Director": "Tim Burton",
+      "Writer": "Bob Kane (Batman characters), Sam Hamm (story), Sam Hamm (screenplay), Warren Skaaren (screenplay)",
+      "Actors": "Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl",
+      "Plot": "Gotham City. Crime boss Carl Grissom (Jack Palance) effectively runs the town but there's a new crime fighter in town - Batman (Michael Keaton). Grissom's right-hand man is Jack Napier (Jack Nicholson), a brutal man who is not entirely sane... After falling out between the two Grissom has Napier set up with the Police and Napier falls to his apparent death in a vat of chemicals. However, he soon reappears as The Joker and starts a reign of terror in Gotham City. Meanwhile, reporter Vicki Vale (Kim Basinger) is in the city to do an article on Batman. She soon starts a relationship with Batman's everyday persona, billionaire Bruce Wayne.",
+      "Language": "English, French, Spanish",
+      "Country": "USA, UK",
+      "Awards": "Won 1 Oscar. Another 8 wins & 26 nominations.",
+      "Poster": "https://ia.media-imdb.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg",
+      "Ratings": [
+        {
+          "Source": "Internet Movie Database",
+          "Value": "7.6/10"
+        },
+        {
+          "Source": "Rotten Tomatoes",
+          "Value": "72%"
+        },
+        {
+          "Source": "Metacritic",
+          "Value": "69/100"
+        }
+      ],
+      "Metascore": "69",
+      "imdbRating": "7.6",
+      "imdbVotes": "297,186",
+      "imdbID": "tt0096895",
+      "Type": "movie",
+      "DVD": "25 Mar 1997",
+      "BoxOffice": "N/A",
+      "Production": "Warner Bros. Pictures",
+      "Website": "N/A",
+      "Response": "True",
+      "isSeen": false
+    }
+  ]
+}

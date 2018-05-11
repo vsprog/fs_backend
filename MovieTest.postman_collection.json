@@ -1,0 +1,130 @@
+{
+	"variables": [],
+	"info": {
+		"name": "MovieTest",
+		"_postman_id": "c4f772b8-a601-4280-d423-0be587137ff6",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "movies",
+			"request": {
+				"url": "http://localhost:3000/bookmarks",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "movies/imdbID",
+			"request": {
+				"url": "http://localhost:3000/bookmarks/{{imdbID}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "movies/imdbID/update",
+			"request": {
+				"url": "http://localhost:3000/bookmarks/{{imdbID}}",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"isSeen\": false\n}"
+				},
+				"description": ""
+			},
+			"response": []
+ 		},
+		{
+			"name": "movies/add",
+			"request": {
+				"url": "http://localhost:3000/bookmarks",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"imdbID\": \"tt2015381\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},		
+		{
+			"name": "movies/imdbID/delete",
+			"request": {
+				"url": "http://localhost:3000/bookmarks/{{imdbID}}",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "bad_request",
+			"request": {
+				"url": "http://localhost:3000/bookmarks/{{imdbID}}/delete",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "invalid_api",
+			"request": {
+				"url": "http://localhost:3000/bookmarks/{{imdbID}}",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\": \"00000\",\n\t\"test\": \"123\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
