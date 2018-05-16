@@ -3,18 +3,25 @@ const db = require('../db/db');
 const { validate } = require('jsonschema');
 const request = require('request-promise');
 
-router.use('/:id', (req, res, next) => {
-  const task = db.get('movies')
-    .find({ id: req.params.id })
+router.use('/bookmarks/:imdbID', (req, res, next) => {
+  const movie = db.get('movies')
+    .find({ imdbID: req.params.imdbID })
     .value();
 
-  if (!task) {
-    next(new Error('CAN_NOT_FIND_TASK'));
+  if (!movie) {
+    next(new Error('CAN_NOT_FIND_MOVIE'));
   }else next();
 });
 
+// GET bookmarks
+router.get('/bookmarks', (req, res) => {
+  const movies = db.get('movies').value();
+
+  res.json({ status: 'OK', data: movies });
+});
+
 // GET movies
-router.get('/', (req, res) => {
+router.get('/search', (req, res) => {
   const movies = db.get('movies').value();
 
   res.json({ status: 'OK', data: movies });
@@ -51,8 +58,8 @@ router.get('/:imdbID', (req, res) => {
   });
 });
 
-// POST /movies
-router.post('/', (req, res, next) => {
+// POST /omdb
+/*router.post('/search', (req, res, next) => {
   request({
       uri: 'http://www.omdbapi.com/',
       qs: {
@@ -76,6 +83,16 @@ router.post('/', (req, res, next) => {
       console.log(err);
       next(err);
   });
+});*/
+
+// POST /search
+router.post('/search', (req, res, next) => {
+  db
+    .get('movies')
+    .push(req.body.movie)
+    .write();
+
+  res.json({ status: 'OK' });
 });
 
 // PATCH /:imdbID
@@ -92,14 +109,25 @@ router.patch('/:imdbID', (req, res, next) => {
   res.json({ status: 'OK', data: task });
 });
 
-// DELETE /movies/:imdbID
-router.delete('/:imdbID', (req, res) => {
+// DELETE /search/:imdbID
+router.delete('/search/:imdbID', (req, res) => {
   db
     .get('movies')
     .remove({ imdbID: req.params.imdbID })
     .write();
 
-  res.json({ status: 'OK' });
+  res.json({ status: 'OK', data: movies });
+});
+
+// DELETE /bookmarks/:imdbID
+router.delete('/bookmarks/:imdbID', (req, res) => {
+  db
+    .get('movies')
+    .remove({ imdbID: req.params.imdbID })
+    .write();
+
+  const movies = db.get('movies').value();
+  res.json({ status: 'OK', data: movies });
 });
 
 
