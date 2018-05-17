@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', moviesRoutes);   // bookmarks/movies,  /.*/ - любой путь
+app.use('/api', moviesRoutes);   // bookmarks/movies,  /.*/ - любой путь
 
 app.use((req, res) => {
   res.json({ status: 'BAD_REQUEST', messages: [error({ code: 'BAD_REQUEST' })] });

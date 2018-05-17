@@ -92,7 +92,9 @@ router.post('/search', (req, res, next) => {
     .push(req.body.movie)
     .write();
 
-  res.json({ status: 'OK' });
+  const movies = db.get('movies').value();
+  
+  res.json({ status: 'OK', data: movies });
 });
 
 // PATCH /:imdbID
@@ -116,6 +118,8 @@ router.delete('/search/:imdbID', (req, res) => {
     .remove({ imdbID: req.params.imdbID })
     .write();
 
+  const movies = db.get('movies').value();
+
   res.json({ status: 'OK', data: movies });
 });
 
@@ -127,6 +131,7 @@ router.delete('/bookmarks/:imdbID', (req, res) => {
     .write();
 
   const movies = db.get('movies').value();
+
   res.json({ status: 'OK', data: movies });
 });
 
