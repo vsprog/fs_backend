@@ -93,12 +93,24 @@ router.post('/search', (req, res, next) => {
     .write();
 
   const movies = db.get('movies').value();
-  
+
+  res.json({ status: 'OK', data: movies });
+});
+
+// POST /bookmark
+router.post('/bookmark', (req, res, next) => {
+  db
+    .get('movies')
+    .push(req.body.movie)
+    .write();
+
+  const movies = db.get('movies').value();
+
   res.json({ status: 'OK', data: movies });
 });
 
 // PATCH /:imdbID
-// {isSeen: true/false};
+// {isSeen: true/false};  {order: number}
 router.patch('/:imdbID', (req, res, next) => {
   const task = db
     .get('movies')
