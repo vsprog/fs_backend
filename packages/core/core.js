@@ -1,5 +1,4 @@
 const express = require('express');
-const router = require('express').Router();
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -32,8 +31,7 @@ app.use((req, res, next) => {
   next();
 });
 
-router
-router.use((req, res, next) => {
+moviesRoutes.use((req, res, next) => {
   setTimeout(next, 300);
 });
 
