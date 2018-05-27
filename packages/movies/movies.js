@@ -15,7 +15,9 @@ router.use('/bookmarks/:imdbID', (req, res, next) => {
 
 // GET bookmarks
 router.get('/bookmarks', (req, res) => {
-  const movies = db.get('movies').value();
+  const movies = db.get('movies')
+    .sortBy('order')
+    .value();
 
   res.json({ status: 'OK', data: movies });
 });
@@ -111,8 +113,8 @@ router.post('/bookmark', (req, res, next) => {
 
 // PATCH /:imdbID
 // {isSeen: true/false};  {order: number}
-router.patch('/:imdbID', (req, res, next) => {
-  const task = db
+router.patch('/bookmark/:imdbID', (req, res, next) => {
+  const movie = db
     .get('movies')
     .find({ imdbID: req.params.imdbID })
     .assign(req.body)
@@ -120,7 +122,7 @@ router.patch('/:imdbID', (req, res, next) => {
 
   db.write();
 
-  res.json({ status: 'OK', data: task });
+  res.json({ status: 'OK' });
 });
 
 // DELETE /search/:imdbID
@@ -147,6 +149,15 @@ router.delete('/bookmarks/:imdbID', (req, res) => {
   res.json({ status: 'OK', data: movies });
 });
 
+// DELETE all bookmarks
+router.delete('/bookmarks', (req, res) => {
+  db
+    .set('movies', [])
+    .write();
 
+  const movies = db.get('movies').value();
+  
+  res.json({ status: 'OK', data: movies });
+});
 
 module.exports = router;
